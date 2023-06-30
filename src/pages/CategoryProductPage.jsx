@@ -21,7 +21,6 @@ const CategoryProductPage = () => {
   const categoryProductsStatus = useSelector(getAllcategoryProductsStatus);
   const categoryProducts = useSelector(getAllCategoryProducts);
 
-  console.log(categoryProducts);
   if (categoryProductsStatus) {
     return <Loader />;
   }

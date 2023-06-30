@@ -4,7 +4,6 @@ import {
   clearCart,
   getAllCarts,
   toggleCartQty,
-  getCartTotal,
 } from "../store/cartSlice";
 import { formatPrice } from "../utils";
 import { Link } from "react-router-dom";
@@ -14,7 +13,6 @@ const CartPage = () => {
   const dispatch = useDispatch();
   const carts = useSelector(getAllCarts);
   const { itemsCount, totalAmount } = useSelector((state) => state.cart);
-  console.log(carts);
 
   if (carts.length === 0) {
     return (
