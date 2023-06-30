@@ -1,4 +1,3 @@
-import { lazy } from "react";
 import { Route, Routes } from "react-router-dom";
 import {
   HomePage,
@@ -7,9 +6,9 @@ import {
   ProductDetailPage,
   SearchPage,
 } from "./pages";
-const Header = lazy(() => import("./components/Header"));
-const SideBar = lazy(() => import("./components/SideBar"));
-const Footer = lazy(() => import("./components/Footer"));
+import Header from "./components/Header";
+import SideBar from "./components/SideBar";
+import Footer from "./components/Footer";
 
 const App = () => {
   return (
