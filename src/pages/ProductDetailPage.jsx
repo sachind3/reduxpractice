@@ -25,8 +25,6 @@ const ProductDetailPage = () => {
     }
   }, [id, dispatch]);
 
-  console.log(id);
-
   let discountedPrice =
     product?.price - product?.price * (product?.discountPercentage / 100) || 0;
   const thumbs = product?.images?.length ? product?.images : [];
