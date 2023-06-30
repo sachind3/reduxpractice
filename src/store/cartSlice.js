@@ -65,18 +65,19 @@ const cartSlice = createSlice({
     },
     toggleCartQty: (state, action) => {
       const tempCart = state.carts.map((item) => {
+        console.log(item);
         if (item.id === action.payload.id) {
           let tempQty = item.quantity;
           let tempTotalPrice = item.totalPrice;
           if (action.payload.type === "INC") {
             tempQty++;
             if (tempQty === item.stock) tempQty = item.stock;
-            tempTotalPrice = tempQty + item.discountedPrice;
+            tempTotalPrice = tempQty * item.discountedPrice;
           }
           if (action.payload.type === "DEC") {
             tempQty--;
             if (tempQty < 1) tempQty = 1;
-            tempTotalPrice = tempQty + item.discountedPrice;
+            tempTotalPrice = tempQty * item.discountedPrice;
           }
           return { ...item, quantity: tempQty, totalPrice: tempTotalPrice };
         } else {

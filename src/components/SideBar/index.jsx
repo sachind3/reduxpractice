@@ -3,14 +3,20 @@ import { getSidebarStatus, setSidebarOff } from "../../store/sidebarSlice";
 import { FaXmark } from "react-icons/fa6";
 import { useEffect } from "react";
 import { fetchCategories, getAllCategories } from "../../store/categorySlice";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 const SideBar = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const isSidebarOn = useSelector(getSidebarStatus);
   const categories = useSelector(getAllCategories);
   useEffect(() => {
     dispatch(fetchCategories());
   }, [dispatch]);
+
+  const navigateToCategory = (category) => {
+    dispatch(setSidebarOff());
+    navigate(`category/${category}`);
+  };
   return (
     <aside
       className={`${
@@ -29,12 +35,13 @@ const SideBar = () => {
             categories.map((category, idx) => {
               return (
                 <li key={idx} className="px-4 py-1.5 border-b">
-                  <Link
-                    to={`category/${category}`}
+                  <button
+                    onClick={() => navigateToCategory(category)}
+                    // to={`category/${category}`}
                     className="capitalize block"
                   >
                     {category.replace("-", " ")}
-                  </Link>
+                  </button>
                 </li>
               );
             })}

@@ -15,20 +15,22 @@ const Product = ({ product }) => {
           />
         </div>
         <div className="py-3">
-          <div className="text-center">
-            <p>Brand: {product?.brand}</p>
+          <div className="text-center px-1">
+            <p className="text-xs md:text-sm sm:text-xs">
+              Brand: {product?.brand}
+            </p>
           </div>
-          <div className="text-slate-800 font-semibold text-center line-clamp-1">
+          <div className="text-slate-800 font-semibold text-center line-clamp-1 px-1">
             {product?.title}
           </div>
-          <div className="flex items-center justify-center gap-2">
-            <div className="line-through text-slate-400">
+          <div className="flex items-center justify-center gap-2 flex-wrap">
+            <div className="line-through text-slate-400 text-xs md:text-sm sm:text-xs">
               {formatPrice(product?.price)}
             </div>
-            <div className="font-bold text-lg text-slate-800">
+            <div className="font-bold text-slate-800 text-sm md:text-base sm:text-sm">
               {formatPrice(product?.discountedPrice)}
             </div>
-            <div className="text-sm text-amber-600">
+            <div className="text-xs md:text-sm sm:text-xs text-amber-600">
               ({product?.discountPercentage}% Off)
             </div>
           </div>

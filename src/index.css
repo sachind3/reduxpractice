@@ -8,6 +8,21 @@
     section {
         @apply min-h-screen
     }
+    table {
+        @apply w-full border-collapse shadow-sm
+    }
+    thead {
+        @apply bg-slate-200
+    }
+    /* th,td {
+        @apply border
+    } */
+    th {
+        @apply text-left py-2 px-2
+    }
+    td {
+        @apply text-left py-1 px-2
+    }
 }
 @layer utilities {
     .slick-slider img {
